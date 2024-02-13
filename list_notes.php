@@ -17,7 +17,12 @@ $tampil = kuery("Select * from notes");
     <title>Notes</title>
   </head>
   <body>
-
+  <?php
+    session_start();
+    if($_SESSION['status']!='login'){
+      header("location:login.php?msg=belum_login");
+    }
+    ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">NOTES</a>
@@ -36,7 +41,7 @@ $tampil = kuery("Select * from notes");
         <a class="nav-link" href="#">API</a>
         </li>
       </ul>
-      <button type="button" class="btn btn-success">LOG OUT</button>
+      <a href="logout.php" class="btn btn-outline-info border-blue">Log Out</a>
     </div>
   </div>
 </nav>

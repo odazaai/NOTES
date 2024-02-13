@@ -51,5 +51,21 @@ function Delete($tablename, $id)
     global $dbconnect;
     $hasil=mysqli_query($dbconnect, "Delete from $tablename where id='$id'");
     return $hasil;
-}   
+}
+
+function cek_login($username, $password){
+    global $dbconnect;
+    $uname = $username;
+    $upass = $password;
+
+    $hasil = mysqli_query($dbconnect, "select * from user where username='$uname' and password=md5('$upass')");
+    $cek = mysqli_num_rows($hasil);
+
+    if($cek > 0 ){
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
 ?>

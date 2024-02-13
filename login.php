@@ -1,3 +1,18 @@
+<?php 
+require_once('database.php');
+session_start();
+
+if(isset($_POST['masuk'])){
+  if (cek_login($_POST['username'], $_POST['password'])){
+    $_SESSION['username'] = $username;
+    $_SESSION['status'] = "login";
+    header("location:home.php");
+  } else{
+    header("location:login.php?msg=gagal");
+  }
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,17 +35,21 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-
-    <form action="" method="POST" name="inventaris">
-      <div class="mb-3">
-         <label form="kode" class="form-label">Username</label>
-         <input type="text" class="form-control" id="usn" name="usn">
+<br>
+    <form action="" method="post">
+      <div class="form-group">
+         <!-- <label form="kode" class="form-label">Username</label> -->
+         <input type="user" class="form-control" name="username" placeholder="Username">
       </div>
-      <div class="mb-3">
-         <label form="nama" class="form-label">Password</label>
-         <input type="text" class="form-control" id="pass" name="pass">
+      <br>
+      <div class="form-group">
+         <!-- <label form="nama" class="form-label">Password</label> -->
+         <input type="password" class="form-control" name="password" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary" name="simpan">Log In</button>
+      <br>
+      <div class="form-group">
+        <button type="submit" name="masuk" class="btn btn-primary">Login</button>
+      </div>
     </form>
     </li>
   </ul>

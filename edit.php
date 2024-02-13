@@ -35,7 +35,7 @@ $data=Editdata("notes", $_GET['id']);
         <a class="nav-link" href="#">API</a>
         </li>
       </ul>
-      <button type="button" class="btn btn-outline-success">Log Out</button>
+      <a href="logout.php" class="btn btn-outline-info border-blue">Log Out</a>
     </div>
   </div>
 </nav>
@@ -52,7 +52,7 @@ $data=Editdata("notes", $_GET['id']);
     </div>
     <br>
 <div>
-  <input type="submit" value="Update">
+  <input type="submit" class="btn btn-info" value="Update">
 </div>
 </form>
 <?php endwhile; ?>

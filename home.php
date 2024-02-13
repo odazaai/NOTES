@@ -11,7 +11,12 @@
     <title>My Notes</title>
   </head>
   <body>
-
+    <?php
+    session_start();
+    if($_SESSION['status']!='login'){
+      header("location:login.php?msg=belum_login");
+    }
+    ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">NOTES</a>
@@ -30,7 +35,7 @@
         <a class="nav-link" href="#">API</a>
         </li>
       </ul>
-      <button type="button" class="btn btn-outline-success">Log Out</button>
+      <a href="logout.php" class="btn btn-outline-info border-blue">Log Out</a>
     </div>
   </div>
 </nav>
@@ -42,7 +47,7 @@
     <h1>My Notes 2024</h1>
     <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <p class="lead">
-      <a href="notes.php" class="btn btn-lg btn-outline-secondary border-gray">Notes</a>
+      <a href="notes.php" class="btn btn-outline-info btn-lg">Notes</a>
     </p>
     </center>
   </main>
